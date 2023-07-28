@@ -49,8 +49,7 @@ function ApplyLeave() {
     setFormData({
       leaveDateFrom: "",
       leaveDateTo: "",
-      leaveReason:"",
-      status:"pending"
+      leaveReason:""
     })
   }
   // console.log(applyLeaveData);

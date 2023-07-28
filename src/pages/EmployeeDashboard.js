@@ -20,14 +20,35 @@ function EmployeeDashboard() {
     }
   }, [])
 
-  console.log(receivedData);
+  // console.log(receivedData);
 
-  const totalLeaves = () => {
-    const userLogin = receivedData.filter((el) => {
-      return el.status
-  });
-  console.log(userLogin);
-  }
+  const totalLeavess =  receivedData.length;
+  // console.log(totalLeavess);
+
+  const pendingLeaves =receivedData.filter((el) => {
+    return el.status == "pending"
+  }) 
+  const pendingLeavess=pendingLeaves.length;
+  // console.log(pendingLeavess);
+
+  const approvedLeaves =receivedData.filter((el) => {
+    return el.status == "approved"
+  }) 
+  const approvedLeavess=approvedLeaves.length;
+  // console.log(approvedLeavess);
+
+  const rejectedLeaves =receivedData.filter((el) => {
+    return el.status == "rejected"
+  }) 
+  const rejectedLeavess=rejectedLeaves.length;
+  // console.log(rejectedLeavess);
+  // const totalLeaves = () => {
+  //   const userLogin = receivedData.filter((el) => {
+  //     return el.status == "approved"
+  //   })
+  //   console.log(userLogin);
+  // }
+  // const approvedLeaves= userLogin.length;
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -36,10 +57,10 @@ function EmployeeDashboard() {
 
   return (
     <>
-      <Typography sx={{ marginTop: "100px" }} onClick={totalLeaves}>Total Leaves : 10</Typography>
-      <Typography>Pending Leaves : (10)</Typography>
-      <Typography>Approved Leaves : (10)</Typography>
-      <Typography>Rejected Leaves : (10)</Typography>
+      <Typography sx={{ marginTop: "100px" }}>Total Leaves : {totalLeavess}</Typography>
+      <Typography>Pending Leaves : {pendingLeavess}</Typography>
+      <Typography>Approved Leaves : {approvedLeavess}</Typography>
+      <Typography>Rejected Leaves : {rejectedLeavess}</Typography>
       {/* //on click of this button divert to the Apply leave page */}
       <Button variant='contained' onClick={handleClick} sx={{ mt: 2 }}>Add Leave</Button>
       {receivedData.map((ele, index) => {
