@@ -26,18 +26,20 @@ function Login() {
         const { userName, password } = formData
         if (getUserData && getUserData.length) {
             const newdata = JSON.parse(getUserData);
-            // console.log(newdata);
+            // if(radio?staff)
+            console.log(newdata);
             const userLogin = newdata.find((el, key) => {
                 return el.userName === userName && el.password === password
             });
-            console.log(userLogin.firstName);
-            console.log(userLogin);
+            // console.log(userLogin.firstName);
+            // console.log(userLogin);
             if (userLogin.length === 0) {
                 alert("Please Enter Valid Details")
             } else {
                 // alert("User Login Successful")
                 localStorage.setItem("user_login", JSON.stringify(userLogin));
-                // history("/details")
+                // navigate("/employeeDashboard")
+                // {el.radio===staff?navigate("/employeeDashboard"):navigate("/adminDashboard")}
                 // console.log("Login Sucessful");
             }
 
